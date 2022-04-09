@@ -34,13 +34,13 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(png|svg|jpg|gif|webp)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             esModule: false,
-                            name: 'assets/[name].[ext]'
+                            name: 'assets/img/[name].[ext]'
                         }
                     }
                 ]
