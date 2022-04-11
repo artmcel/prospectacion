@@ -46,13 +46,13 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|gif|ico)$/,
+                test: /\.(png|svg|jpg|gif|webp|ico)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             esModule: false,
-                            name: 'assets/[name].[ext]'
+                            name: 'assets/img/[name].[ext]'
                         }
                     }
                 ]
