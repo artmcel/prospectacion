@@ -36,8 +36,7 @@ btn.addEventListener('click', (e)=>{
         escuela,
         nombre2,
         telefono2
-    })   
-    );
+    }) );
 
 
 
