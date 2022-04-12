@@ -1,11 +1,13 @@
 const HtmlWebPackPlugin       = require('html-webpack-plugin'); 
-const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+//const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
+//const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
     mode: 'development',
     optimization: {
-        minimizer: [ new OptimizeCssAssetsPlugin() ]
+        minimizer: [ new CssMinimizerPlugin() ]
     },
     module: {
         rules: [
@@ -43,7 +45,8 @@ module.exports = {
                             name: 'assets/img/[name].[ext]'
                         }
                     }
-                ]
+                ],
+                type: 'javascript/auto'
             }
         ]
     },
