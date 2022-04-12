@@ -1,57 +1,32 @@
 //const url = 'http://192.168.1.123/api/prospectacion/procesa-datos.php';
-const url = 'https://api.unimex.edu.mx/api/prospectacion/procesa-datos.php';
-//const url = './procesa-datos.php';
+//const url = 'https://api.unimex.edu.mx/api/prospectacion/procesa-datos.php';
+//const url = './php/procesa-datos.php';
+const url = 'http://192.168.1.123/dist-pros/php/procesa-datos.php';
 
 
-const registraProspecto = async( datosPros )=>{
+const registraProspecto = async( datos )=>{
 
     try {
 
-        //return datosPros;
-        
-        //await ({ datosPros });
-        
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Accept'       : 'application/json',
-                'Content-type' : 'application/json'
+                "Accept"       : "application/json",
+                "Content-Type" : "application/json"
             },
-            data: JSON.stringify({
-                datosPros
-            })
+            body: JSON.stringify(datos)
         });
     
         if( !response.ok ) throw 'Error al enviar los datos';
-    
-        const respuesta = await response.json();
-        return respuesta;
-                
+        return await response.json();
+        
     } catch (error) {
 
         throw error;
         
     }
 
-
-    /*
-
-
-    */
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 export {
     registraProspecto
