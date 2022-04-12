@@ -6,6 +6,8 @@ const btn = document.getElementById('boton');
 
 
 btn.addEventListener('click', (e)=>{
+
+    e.preventDefault();
     
     const nombre = document.getElementById('nombre'),
         celular = document.getElementById('celular'),
@@ -21,14 +23,23 @@ btn.addEventListener('click', (e)=>{
         telefono2 = document.getElementById('telefono2');
         
     if (!nombre.value) throw alerta( nombre );
+    e.preventDefault();
     if (!celular.value) throw alerta( celular );
+    e.preventDefault();
     if (!telCasa.value) throw alerta( telCasa );
+    e.preventDefault();
     if (!email.value) throw alerta( email );
+    e.preventDefault();
     if (!carrera.value) throw alerta( carrera );
+    e.preventDefault();
     if (!horario.value) throw alerta( horario );
+    e.preventDefault();
     if (!periodo.value) throw alerta( periodo );
+    e.preventDefault();
     if (!plantel.value) throw alerta( plantel );
+    e.preventDefault();
     if (!escuela.value) throw alerta( escuela );
+    e.preventDefault();
 
     let prospecto = {
         
@@ -54,7 +65,7 @@ btn.addEventListener('click', (e)=>{
 const validaciones = (datosProspecto)=>{
     registraProspecto( datosProspecto ).then( resp =>{
         console.log( resp.registro );
-        resp.registro === true ? window.location.href = 'registro' :  console.error('no se registro');
+        resp.registro === true ? window.location.href = 'registro.html' :  console.error('no se registro');
     });
 }
 
