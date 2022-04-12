@@ -64,6 +64,10 @@ module.exports = {
             template: './src/index.html',
             filename: './index.html'
         }),
+        new HtmlWebPackPlugin({
+            template: './src/registro.html',
+            filename: 'registro.html'
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].[contentHash].css',
             ignoreOrder: false
