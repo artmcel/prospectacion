@@ -13,8 +13,7 @@ module.exports = {
     },
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
-        minimize : true,
-        runtimeChunk: 'single'
+        minimize : true
     },
     module: {
         rules: [
