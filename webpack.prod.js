@@ -17,10 +17,6 @@ module.exports = {
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
     },
-    output: {
-        filename: 'main.[contenthash].js',
-        clean : true
-    },
     module: {
         rules: [
             {
@@ -80,7 +76,11 @@ module.exports = {
         }),
         new MinifyPlugin(),
         //new CleanWebpackPlugin(),
-    ]
+    ],
+    output: {
+        filename: '[name][contenthash].js',
+        clean : true
+    }
 
 }
 
