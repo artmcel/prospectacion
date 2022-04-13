@@ -13,7 +13,10 @@ module.exports = {
     },
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
-        minimize : true
+        minimize : true,
+        splitChunks: {
+            chunks: 'all',
+        },
     },
     module: {
         rules: [
