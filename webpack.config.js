@@ -1,26 +1,32 @@
 const HtmlWebPackPlugin       = require('html-webpack-plugin'); 
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+//const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
     mode: 'development',
+    entry : {
+        index : './src/index.js',
+        componentes : './src/js/componentes.js'
+    },
     optimization: {
-        minimizer: [ new OptimizeCssAssetsPlugin() ]
+        minimizer: [ new CssMinimizerPlugin() ],
+        minimize : true
     },
     module: {
         rules: [
+            {
+                test: /styles\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
+            },
             {
                 test: /\.css$/,
                 exclude: /styles\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader'
-                ]
-            },
-            {
-                test: /styles\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
             },
@@ -34,7 +40,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(png|svg|jpg|gif|ico)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -43,7 +49,8 @@ module.exports = {
                             name: 'assets/[name].[ext]'
                         }
                     }
-                ]
+                ],
+                type: 'javascript/auto'
             }
         ]
     },
