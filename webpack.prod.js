@@ -7,8 +7,18 @@ const MinifyPlugin            = require('babel-minify-webpack-plugin');
 
 module.exports = {
     mode: 'production',
+    entry : {
+
+        index: './src/index.js',
+        componentes : './src/js/componentes.js',
+        peticiones : './src/js/services/peticiones.js'
+
+    },
     optimization: {
-        minimizer: [ new CssMinimizerPlugin() ]
+        minimizer: [ new CssMinimizerPlugin() ],
+        splitChunks: {
+            chunks: 'all',
+        }
     },
     output: {
         filename: 'main.[contenthash].js',

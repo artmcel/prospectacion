@@ -8,7 +8,8 @@ module.exports = {
     entry : {
 
         index: './src/index.js',
-        componentes : './src/js/componentes.js'
+        componentes : './src/js/componentes.js',
+        peticiones : 'src/js/services/peticiones.js'
 
     },
     optimization: {
