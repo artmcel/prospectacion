@@ -64,12 +64,12 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name].[contenthash].css',
             ignoreOrder: false
         })
     ],
     output: {
-        filename: '[name][contenthash].bundle.js',
+        filename: '[name].[contenthash].js',
         clean : true
     }
 

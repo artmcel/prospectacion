@@ -71,14 +71,14 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].bundle.css',
+            filename: '[name].[contenthash].css',
             ignoreOrder: false
         }),
         new MinifyPlugin(),
         //new CleanWebpackPlugin(),
     ],
     output: {
-        filename: '[name][contenthash].js',
+        filename: '[name].[contenthash].js',
         clean : true
     }
 
