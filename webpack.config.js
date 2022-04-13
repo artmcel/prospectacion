@@ -12,6 +12,7 @@ module.exports = {
         peticiones : './src/js/services/peticiones.js'
 
     },
+    devtool: 'inline-source-map',
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
         minimize : true
@@ -66,7 +67,11 @@ module.exports = {
             filename: '[name].css',
             ignoreOrder: false
         })
-    ]
+    ],
+    output: {
+        filename: '[name][contenthash].bundle.js',
+        clean : true
+    }
 
 }
 
