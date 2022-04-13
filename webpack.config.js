@@ -8,14 +8,15 @@ module.exports = {
     entry : {
 
         index: './src/index.js',
-        componentes : './src/js/componentes.js',
-        peticiones : './src/js/services/peticiones.js'
+        //componentes : './src/js/componentes.js',
+        //peticiones : './src/js/services/peticiones.js'
 
     },
     devtool: 'inline-source-map',
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
-        minimize : true
+        minimize : true,
+        runtimeChunk: 'single',
     },
     module: {
         rules: [
