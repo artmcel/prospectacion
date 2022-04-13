@@ -1,4 +1,12 @@
 import _ from 'lodash';
+import { saludo } from './services/peticiones';
 
 
-console.log(_.join(['Another', 'module', 'loaded!'], ' '));
+let n = 'Arturo';
+
+saludo( n ).then( console.log );
+
+
+
+
+console.log(_.join(['archivo comopenentes']));
