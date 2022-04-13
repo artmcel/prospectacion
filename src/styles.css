@@ -1,1 +1,5 @@
 /* Este es el estilo del main */
+body{
+    background-color: black;
+    color: white;
+}
