@@ -1,9 +1,3 @@
-import _ from 'lodash';
-
 export const saludo = async( nombre )=>{
-    return _.join([
-        
-        `bienvenido: ${nombre}`,
-        'cargando archivo peticiones'
-    ])
+    return `hola, bienvenido: ${nombre}`
 }

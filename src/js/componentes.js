@@ -7,6 +7,6 @@ let n = 'Arturo';
 saludo( n ).then( console.log );
 
 
-
-
-console.log(_.join(['archivo comopenentes']));
+export default function print(text) {
+    console.log(text);
+};
