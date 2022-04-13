@@ -16,9 +16,6 @@ module.exports = {
     },
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
-        splitChunks: {
-            chunks: 'all',
-        }
     },
     output: {
         filename: 'main.[contenthash].js',
@@ -78,7 +75,7 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
+            filename: '[name].[contenthash].bundle.css',
             ignoreOrder: false
         }),
         new MinifyPlugin(),
