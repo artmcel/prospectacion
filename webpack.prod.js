@@ -1,16 +1,17 @@
 const HtmlWebPackPlugin       = require('html-webpack-plugin'); 
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin      = require("css-minimizer-webpack-plugin");
 const MinifyPlugin            = require('babel-minify-webpack-plugin');
-const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
+//const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
     optimization: {
-        minimizer: [ new OptimizeCssAssetsPlugin() ]
+        minimizer: [ new CssMinimizerPlugin() ]
     },
     output: {
-        filename: 'main.[contentHash].js'
+        filename: 'main.[contenthash].js',
+        clean : true
     },
     module: {
         rules: [
@@ -22,17 +23,17 @@ module.exports = {
                 ]
             },
             {
-                test: /\.css$/,
-                exclude: /styles\.css$/,
+                test: /styles\.css$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
             },
             {
-                test: /styles\.css$/,
+                test: /\.css$/,
+                exclude: /styles\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader'
                 ]
             },
@@ -55,7 +56,8 @@ module.exports = {
                             name: 'assets/img/[name].[ext]'
                         }
                     }
-                ]
+                ],
+                type: 'javascript/auto'
             }
         ]
     },
@@ -69,11 +71,11 @@ module.exports = {
             filename: 'registro.html'
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contentHash].css',
+            filename: '[name].[contenthash].css',
             ignoreOrder: false
         }),
         new MinifyPlugin(),
-        new CleanWebpackPlugin(),
+        //new CleanWebpackPlugin(),
     ]
 
 }
