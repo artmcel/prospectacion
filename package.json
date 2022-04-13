@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "lodash": "^4.17.21",
     "sweetalert2": "^11.4.8"
   }
 }
