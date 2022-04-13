@@ -6,12 +6,20 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 module.exports = {
     mode: 'development',
     entry : {
-        index : './src/index.js',
-        componentes : './src/js/componentes.js'
+        index : {
+            import : './src/index.js',
+            dependOn : 'shared'
+        },
+        componentes : {
+            import : './src/js/componentes.js',
+            dependOn : 'shared'
+        },
+        shared: 'lodash'
     },
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
-        minimize : true
+        minimize : true,
+        runtimeChunk: 'single'
     },
     module: {
         rules: [
