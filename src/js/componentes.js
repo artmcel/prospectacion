@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { registraProspecto } from "./service/peticiones";
+import { registraProspecto } from "./services/peticiones";
 
 
 const btn = document.getElementById('boton');
