@@ -2,7 +2,7 @@
 //let Swal = import(/*webpackPrefetch: true*/ 'sweetalert2');
 //import { registraProspecto } from "./services/peticiones";
 const btn = document.getElementById('boton'),
-      validaciones = () => import(/*webpackChunkName "peticiones"*/  './services/peticiones');
+      validaciones = () => import(/*webpackChunkName: "peticiones" */  './services/peticiones');
 
 btn.addEventListener('click', (e)=>{
 
