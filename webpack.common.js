@@ -19,7 +19,9 @@ module.exports = {
         minimize : true,
         minimizer: [
             new CssMinimizerPlugin(),
-            new TerserPlugin()
+            new TerserPlugin({
+                extractComments : "all"
+            })
         ],
         splitChunks : {
             chunks: 'all'
@@ -60,7 +62,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             esModule: false,
-                            name: 'assets/[name].[ext]'
+                            name: './src/assets/img/[name].[ext]'
                         }
                     }
                 ],
