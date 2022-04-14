@@ -1,10 +1,7 @@
 //import Swal from "sweetalert2";
 //let Swal = import(/*webpackPrefetch: true*/ 'sweetalert2');
 //import { registraProspecto } from "./services/peticiones";
-
-
 const btn = document.getElementById('boton');
-
 
 btn.addEventListener('click', (e)=>{
 
@@ -62,10 +59,9 @@ btn.addEventListener('click', (e)=>{
 
 });
     
-
-const validaciones = (datosProspecto)=>{
+const validaciones = async(datosProspecto)=>{
     //importacion dinamica de modulos...
-    import(/* webpackChunkName "peticiones" */ './services/peticiones').then( module =>{
+    await import(/* webpackChunkName "peticiones" */ './services/peticiones').then( module =>{
         const enviarDatos = module.registraProspecto;
 
         enviarDatos(datosProspecto).then( resp => {
