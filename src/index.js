@@ -6,6 +6,7 @@
  * 
  * 
  */
+import './styles.css';
  import _ from 'lodash';
  //import Swal from 'sweetalert2', add prefetch;
  import(/*webpackPrefetch: true */ 'sweetalert2');
