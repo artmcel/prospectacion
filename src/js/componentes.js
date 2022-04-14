@@ -1,12 +1,22 @@
 //import Swal from "sweetalert2";
 //let Swal = import(/*webpackPrefetch: true*/ 'sweetalert2');
 //import { registraProspecto } from "./services/peticiones";
-const btn = document.getElementById('boton'),
+const btn    = document.getElementById('boton'),
+      inputs = document.querySelectorAll('input'),
       validaciones = () => import(/*webpackChunkName: "peticiones" */  './services/peticiones');
+
+console.log( inputs );
 
 btn.addEventListener('click', (e)=>{
 
     e.preventDefault();
+
+    inputs.forEach( inp =>{
+        if(!inp.value) throw alerta( inp.name );
+        console.log( inp.value );
+    })
+
+    /*
     
     const nombre = document.getElementById('nombre'),
         celular = document.getElementById('celular'),
@@ -39,6 +49,7 @@ btn.addEventListener('click', (e)=>{
     e.preventDefault();
     if (!escuela.value) throw alerta( escuela );
     e.preventDefault();
+    */
 
     let prospecto = {
         
@@ -95,7 +106,7 @@ const alerta = ( input )=>{
 
         alerta.fire({
             icon: 'error',
-            html: `El campo <strong>${input.name}</strong>, esta vacio.`
+            html: `El campo <strong>${input}</strong>, esta vacio.`
         })
         return false;
     })
