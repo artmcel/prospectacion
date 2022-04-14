@@ -3,3 +3,8 @@ body{
     background-color: black;
     color: white;
 }
+
+button{
+    color: aliceblue;
+    background-color: blueviolet;
+}
