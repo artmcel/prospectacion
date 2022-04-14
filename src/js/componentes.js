@@ -1,5 +1,6 @@
-import Swal from "sweetalert2";
-import { registraProspecto } from "./services/peticiones";
+//import Swal from "sweetalert2";
+//let Swal = import(/*webpackPrefetch: true*/ 'sweetalert2');
+//import { registraProspecto } from "./services/peticiones";
 
 
 const btn = document.getElementById('boton');
@@ -63,18 +64,41 @@ btn.addEventListener('click', (e)=>{
     
 
 const validaciones = (datosProspecto)=>{
+    //importacion dinamica de modulos...
+    import(/* webpackChunkName "peticiones" */ './services/peticiones').then( module =>{
+        const enviarDatos = module.registraProspecto;
+
+        enviarDatos(datosProspecto).then( resp => {
+
+            resp.registro === true ? window.location.href = 'registro.html' :  console.error('no se registro');
+
+        })
+    })
+    /* version anterior
     registraProspecto( datosProspecto ).then( resp =>{
         console.log( resp.registro );
         resp.registro === true ? window.location.href = 'registro.html' :  console.error('no se registro');
     });
+    */
 }
 
 const alerta = ( input )=>{
+    import(/*webpackPrefetch: true*/ 'sweetalert2').then( module =>{
+        const alerta = module.default;
+
+        alerta.fire({
+            icon: 'error',
+            html: `El campo <strong>${input.name}</strong>, esta vacio.`
+        })
+        return false;
+    })
+    /*
     Swal.fire({
         icon: 'error',
         html: `El campo <strong>${input.name}</strong>, esta vacio.`
     })
     return false;
+    */
 }
 
 export {
