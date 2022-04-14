@@ -11,6 +11,11 @@ module.exports = {
         //peticiones : './src/js/services/peticiones.js'
 
     },
+    optimization: {
+        minimizer: [ new CssMinimizerPlugin() ],
+        minimize : true,
+        runtimeChunk: 'single',
+    },
     module: {
         rules: [
             {
