@@ -9,6 +9,8 @@ const url = './php/procesa-datos.php';
 
 const registraProspecto = async( datos )=>{
 
+    if(!datos) throw 'no hay datos';
+
     try {
 
         const response = await fetch(url, {
@@ -29,8 +31,14 @@ const registraProspecto = async( datos )=>{
         
     }
 
+};
+
+const saludo = async( n )=>{
+    let mensaje = `bienvenido ${n}`;
+    return await mensaje;
 }
 
 export {
-    registraProspecto
+    registraProspecto,
+    saludo,
 }
