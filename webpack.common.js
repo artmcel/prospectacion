@@ -5,6 +5,9 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
+    devServer : {
+        port:8080
+    },
     entry : {
 
         index: './src/index.js',
@@ -25,17 +28,17 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /styles\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader'
-                ]
-            },
-            {
                 test: /\.css$/,
                 exclude: /styles\.css$/,
                 use: [
                     'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /styles\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
             },
