@@ -14,7 +14,9 @@ module.exports = {
     optimization: {
         minimizer: [ new CssMinimizerPlugin() ],
         minimize : true,
-        runtimeChunk: 'single',
+        splitChunks : {
+            chunks: 'all'
+        }
     },
     module: {
         rules: [
