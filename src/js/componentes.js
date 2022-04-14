@@ -1,7 +1,8 @@
 //import Swal from "sweetalert2";
 //let Swal = import(/*webpackPrefetch: true*/ 'sweetalert2');
 //import { registraProspecto } from "./services/peticiones";
-const btn = document.getElementById('boton');
+const btn = document.getElementById('boton'),
+      validaciones = () => import(/*webpackChunkName "peticiones"*/  './services/peticiones');
 
 btn.addEventListener('click', (e)=>{
 
@@ -55,13 +56,20 @@ btn.addEventListener('click', (e)=>{
         'telefono2' : telefono2.value
     }
 
-    validaciones( prospecto );
+    validaciones().then( module => {
+        const enviarNombre = module.registraProspecto( prospecto );
+        enviarNombre.then( resp =>{
+            resp.registro === true ? window.location.href = 'registro.html' :  console.error('no se registro');
+        });
 
+    });
+    e.preventDefault();
 });
-    
+/*
+
 const validaciones = async(datosProspecto)=>{
-    //importacion dinamica de modulos...
-    await import(/* webpackChunkName "peticiones" */ './services/peticiones').then( module =>{
+    //importacion dinamica de modulos...    
+    await import(webpackChunkName "peticiones"  './services/peticiones').then( module =>{
         const enviarDatos = module.registraProspecto;
 
         enviarDatos(datosProspecto).then( resp => {
@@ -70,13 +78,16 @@ const validaciones = async(datosProspecto)=>{
 
         })
     })
-    /* version anterior
+    //version anterior
     registraProspecto( datosProspecto ).then( resp =>{
         console.log( resp.registro );
         resp.registro === true ? window.location.href = 'registro.html' :  console.error('no se registro');
     });
-    */
 }
+
+
+*/
+    
 
 const alerta = ( input )=>{
     import(/*webpackPrefetch: true*/ 'sweetalert2').then( module =>{
