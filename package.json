@@ -1,7 +1,7 @@
 {
-  "name": "webpack-inicial",
-  "version": "2.0.0",
-  "description": "Este es un cascaron de un proyecto de webpack V5 actualizado",
+  "name": "prospectacion",
+  "version": "2.1.0",
+  "description": "proyecto de prospectacion unimex",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
