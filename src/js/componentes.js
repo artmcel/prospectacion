@@ -5,16 +5,64 @@ const btn    = document.getElementById('boton'),
       inputs = document.querySelectorAll('input'),
       validaciones = () => import(/*webpackChunkName: "peticiones" */  './services/peticiones');
 
-console.log( inputs );
+//console.log( inputs );
 
 btn.addEventListener('click', (e)=>{
 
     e.preventDefault();
 
-    inputs.forEach( inp =>{
-        if(!inp.value) throw alerta( inp.name );
-        console.log( inp.value );
-    })
+    
+    const validaciones = ()=>{
+        
+        for( let i of inputs){
+
+            let prop1 = 'n',
+                prop2 = 'v',
+                campo = i.name,
+                val = i.value;
+                
+                
+                
+                let { [prop1] : objvalor } = {
+                    n : val
+                }
+                
+            objvalor = `${i.name}`
+                
+            let prospecto = {
+             
+                 objvalor
+             }
+                
+
+            console.log( prospecto );
+
+
+            
+
+
+        }
+        //console.log({prospecto});
+        
+        /*
+        inputs.forEach( inp =>{
+            //if(!inp.value) throw alerta( inp.name );
+
+            
+            let campo = inp.name,
+                  valor = inp.value;
+
+    
+            nombre === 'nombre-conocido' && value === '' ? value = null : value === value;
+            nombre === 'telefono-conocido' && value === '' ? value = null : value === value; 
+
+
+
+    
+        })*/
+
+    }
+
 
     /*
     
@@ -49,8 +97,7 @@ btn.addEventListener('click', (e)=>{
     e.preventDefault();
     if (!escuela.value) throw alerta( escuela );
     e.preventDefault();
-    */
-
+    
     let prospecto = {
         
         'nombre' : nombre.value,
@@ -66,6 +113,7 @@ btn.addEventListener('click', (e)=>{
         'nombre2' : nombre2.value,
         'telefono2' : telefono2.value
     }
+    */
 
     validaciones().then( module => {
         const enviarNombre = module.registraProspecto( prospecto );
