@@ -12,7 +12,8 @@ export const cambioLogo = ()=>{
                     <img id="logo" src="assets/img/logo-veracruz.png" width="193" height="109" alt="Logo UNIMEX">
                 </a>`;
 
-        console.log( urlHost );
+        //console.log( urlHost );
+        //cambiar el url por unimex.edu.mx para produccion...
 
         if(urlHost === 'localhost:8080'){
             obtenerLogo.innerHTML = htmlMetro;
