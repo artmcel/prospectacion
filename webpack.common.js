@@ -56,18 +56,14 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|gif|ico)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            esModule: false,
-                            name: './src/assets/img/[name].[ext]'
-                        }
-                    }
-                ],
-                type: 'javascript/auto'
+                test : /\.(png|svg|jpe?g|gif|ico)$/,
+                type : 'asset/resource',
+                generator : {
+                    filename : 'assets/img/[name][ext]'
+                }
+
             }
+            
         ]
     },
     plugins: [
@@ -89,6 +85,6 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         clean : true
-    }
+    }   
 
 }
