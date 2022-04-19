@@ -11,7 +11,7 @@ module.exports = {
     entry : {
 
         index: './src/index.js',
-        //componentes : './src/js/componentes.js',
+        registro : './src/js/registro.js',
         //peticiones : './src/js/services/peticiones.js'
 
     },
@@ -73,11 +73,13 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: './src/index.html',
-            filename: './index.html'
+            filename: './index.html',
+            chunks : ['index']
         }),
         new HtmlWebPackPlugin({
             template: './src/registro.html',
-            filename: './registro.html'
+            filename: './registro.html',
+            chunks : ['registro']
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
