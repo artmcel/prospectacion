@@ -12,7 +12,7 @@ module.exports = {
 
         index: './src/index.js',
         registro : './src/js/registro.js',
-        //peticiones : './src/js/services/peticiones.js'
+        logo : './src/js/logo.js'
 
     },
     optimization: {
@@ -74,12 +74,12 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html',
-            chunks : ['index']
+            chunks : ['index', 'logo']
         }),
         new HtmlWebPackPlugin({
             template: './src/registro.html',
             filename: './registro.html',
-            chunks : ['registro']
+            chunks : ['registro', 'logo']
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
