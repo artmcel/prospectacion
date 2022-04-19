@@ -6,7 +6,8 @@
  * 
  * 
  */
-import './styles.css';
+import (/*webpackPreload: true*/ './styles.css');
+import (/*webpackPreload: true*/ 'bootstrap/dist/css/bootstrap.min.css');
 //import _ from 'lodash';
  //import Swal from 'sweetalert2', add prefetch;
 //import(/*webpackPrefetch: true */ 'sweetalert2');
