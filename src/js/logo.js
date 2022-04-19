@@ -1,3 +1,6 @@
+import logometro from '../assets/img/logometro.png';
+import logoveracruz from '../assets/img/logoveracruz.png';
+
 export const cambioLogo = ()=>{
     
     window.addEventListener('load', ()=>{
@@ -5,11 +8,11 @@ export const cambioLogo = ()=>{
               obtenerLogo = document.querySelector('.nav'),
               htmlMetro   = `
                 <a href="https://unimex.edu.mx">
-                    <img id="logo" src="assets/img/logo-metro.png" width="193" height="109" alt="Logo UNIMEX">
+                    <img id="logo" src="${logometro}" width="193" height="109" alt="Logo UNIMEX">
                 </a>`,
               htmlVeracruz = `
                 <a href="https://unimexver.edu.mx">
-                    <img id="logo" src="assets/img/logo-veracruz.png" width="193" height="109" alt="Logo UNIMEX">
+                    <img id="logo" src="${logoveracruz}" width="193" height="109" alt="Logo UNIMEX">
                 </a>`;
 
         //console.log( urlHost );
