@@ -16,13 +16,21 @@ import (/*webpackPreload: true*/ 'bootstrap/dist/css/bootstrap.min.css');
   * 
   * import { saludo } from './services/peticiones';
   */
+
+//const logo = () => import(/*webpackChunkName: "componentes" */  './js/componentes');
+
  
  
  //cargadinamica
  //const mostrarMensaje = () => import( /* webpackChunkName: "peticiones" */ './services/peticiones' );
+import( './js/logo' ).then( module =>{
+
+    const cambiaLogo = module.cambioLogo;
+    cambiaLogo();
+});
+
+
 import( './js/componentes' ).then( module =>{
     const valida = module.validaciones;
     valida();
-
-
 })
