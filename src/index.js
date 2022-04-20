@@ -23,14 +23,14 @@ import (/*webpackPreload: true*/ 'bootstrap/dist/css/bootstrap.min.css');
  
  //cargadinamica
  //const mostrarMensaje = () => import( /* webpackChunkName: "peticiones" */ './services/peticiones' );
+
 import( './js/logo' ).then( module =>{
 
     const cambiaLogo = module.cambioLogo;
     cambiaLogo();
 });
-
-
-import( './js/componentes' ).then( module =>{
-    const valida = module.validaciones;
-    valida();
-})
+/**
+ * importamos el modulo de forma simple para que no ejecute como funcion, sino hasta que sea llamado en el componentes.js
+ * 
+ */
+import( /* webpackChunkName: "componentes" */ './js/componentes' );
