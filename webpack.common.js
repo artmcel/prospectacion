@@ -83,7 +83,7 @@ module.exports = {
         })
     ],
     output: {
-        filename: '[name].[contenthash].js',
+        filename: '[name].[contenthash].min.js',
         clean : true
     }   
 
