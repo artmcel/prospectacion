@@ -1,8 +1,8 @@
 //import Swal from "sweetalert2";
 //let Swal = import(/*webpackPrefetch: true*/ 'sweetalert2');
 //import { registraProspecto } from "./services/peticiones";
-const btn = document.getElementById('boton'),
-      validaciones = () => import(/*webpackChunkName: "peticiones" */  './services/peticiones');
+const btn = document.getElementById('boton');
+      //validaciones = () => import(/*webpackChunkName: "peticiones" */  './services/peticiones');
 
 btn.addEventListener('click', (e)=>{
 
@@ -56,15 +56,33 @@ btn.addEventListener('click', (e)=>{
         'telefono2' : telefono2.value
     }
 
-    validaciones().then( module => {
-        const enviarNombre = module.registraProspecto( prospecto );
+
+    /**
+     * cambiamos esta forma de llamar
+     * 
+     validaciones().then( module => {
+         const enviarNombre = module.registraProspecto( prospecto );
+         enviarNombre.then( resp =>{
+             resp.registro === true ? window.location.href = 'registro.html' :  console.error('no se registro');
+            });
+            
+        });
+    */
+    enviaDatos( prospecto );
+    e.preventDefault();
+});
+
+// new way to call import...
+const enviaDatos = ( pros )=>{
+    //importaPeticiones().then( module => {
+        import(/*webpackChunkName: "peticiones" */  './services/peticiones').then( module =>{
+        const enviarNombre = module.registraProspecto( pros );
         enviarNombre.then( resp =>{
             resp.registro === true ? window.location.href = 'registro.html' :  console.error('no se registro');
         });
-
+    
     });
-    e.preventDefault();
-});
+}
 /*
 
 const validaciones = async(datosProspecto)=>{
@@ -109,5 +127,6 @@ const alerta = ( input )=>{
 }
 
 export {
-    validaciones
+    //validaciones
+    enviaDatos
 }
