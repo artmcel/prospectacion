@@ -22,10 +22,7 @@ module.exports = {
             new TerserPlugin({
                 extractComments : "all"
             })
-        ],
-        splitChunks : {
-            chunks: 'all'
-        }
+        ]
     },
     module: {
         rules: [
