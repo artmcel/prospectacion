@@ -1,6 +1,6 @@
 {
   "name": "prospectacion",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "proyecto de prospectacion unimex",
   "main": "index.js",
   "scripts": {
