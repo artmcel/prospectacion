@@ -1,13 +1,36 @@
 const HtmlWebPackPlugin       = require('html-webpack-plugin'); 
-const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
-//const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require('terser-webpack-plugin');
+// deprecate for wp5 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// dev mode to load css, extract-css plugin and style-loader NEVER together...
+//const webpack = require("webpack");
+//const devMode = process.env.NODE_ENV !== "production";
+
+/**
+ * load plugins as a array
+ */
+
+const plugins = [
+    new HtmlWebPackPlugin({
+        template: './src/index.html',
+        filename: './index.html',
+        chunks : ['index', 'logo']
+    }),
+    new HtmlWebPackPlugin({
+        template: './src/registro.html',
+        filename: './registro.html',
+        chunks : ['registro', 'logo']
+    }),
+];
+
+/*
+if(devMode) {
+    // only enable hot in development
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+}
+*/
+
 
 module.exports = {
-    devServer : {
-        port:8080
-    },
+    plugins,
     entry : {
 
         index: './src/index.js',
@@ -15,32 +38,8 @@ module.exports = {
         logo : './src/js/logo.js'
 
     },
-    optimization: {
-        minimize : true,
-        minimizer: [
-            new CssMinimizerPlugin(),
-            new TerserPlugin({
-                extractComments : "all"
-            })
-        ]
-    },
     module: {
         rules: [
-            {
-                test: /\.css$/,
-                exclude: /styles\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
-            {
-                test: /styles\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader'
-                ]
-            },
             {
                 test: /\.html$/,
                 use: [
@@ -63,25 +62,12 @@ module.exports = {
             
         ]
     },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: './src/index.html',
-            filename: './index.html',
-            chunks : ['index', 'logo']
-        }),
-        new HtmlWebPackPlugin({
-            template: './src/registro.html',
-            filename: './registro.html',
-            chunks : ['registro', 'logo']
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
-            ignoreOrder: false
-        })
-    ],
     output: {
         filename: '[name][contenthash].min.js',
         clean : true
     }   
-
+    
+    
+    
+    
 }
