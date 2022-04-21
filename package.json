@@ -1,13 +1,12 @@
 {
   "name": "prospectacion",
-  "version": "2.3.4",
+  "version": "3.0.0",
   "description": "proyecto de prospectacion unimex",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack --config webpack.dev.js",
-    "start": "webpack serve --open -c webpack.dev.js "
+    "build:prod": "webpack --config webpack.prod.js",
+    "start": "webpack serve --open --config webpack.dev.js "
   },
   "author": "Arturo Morales",
   "license": "ISC",
